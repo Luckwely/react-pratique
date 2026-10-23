@@ -5,6 +5,7 @@ export const types= ["revenu", "depense"];
 
 export const transaction: Type[] = [
     {
+        id: 1,
         libele: 'test',
         category: 'salaire',
         date: new Date('2026-12-23'),
@@ -12,6 +13,7 @@ export const transaction: Type[] = [
         montant: 245
     },
     {
+        id: 2,
         libele: 'test',
         category: 'salaire',
         date: new Date('2026-12-23'),
@@ -19,6 +21,7 @@ export const transaction: Type[] = [
         montant: 245
     },
     {
+        id: 3,
         libele: 'test',
         category: 'salaire',
         date: new Date('2026-12-23'),

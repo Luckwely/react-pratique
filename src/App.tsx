@@ -32,7 +32,7 @@ export default function App() {
       <div>
         {openModal &&
           <Modal >
-            <CreateForm onClick={() => setOpenModal(false)} categories={categories} types={types} />
+            <CreateForm onClick={() => setOpenModal(false)} setOpenModal={setOpenModal} categories={categories} types={types} setTransaction={setTransaction} />
           </Modal>
         }
       </div>
@@ -40,7 +40,7 @@ export default function App() {
       <div className="bg-gray-300 p-4">
         <Kpi />
         <Filter />
-        <Tableau transactions={transactions} />
+        <Tableau transactions={transactions} setTransactionData={setTransaction} />
       </div>
     </div>
   )
