@@ -1,11 +1,14 @@
 import type { MouseEventHandler } from "react";
 import { FaTimes } from "react-icons/fa";
+import type { Type } from "../types/type";
 
 type Props = {
     onClick: MouseEventHandler<HTMLButtonElement>
+    categories: string[];
+    types: string[];
 }
 
-export default function CreateForm({onClick}: Props) {
+export default function CreateForm({onClick, categories, types}: Props) {
   return (
     <div>
         <div className="flex justify-between items-center mb-4">
@@ -20,9 +23,9 @@ export default function CreateForm({onClick}: Props) {
             <div className="mb-2">
                 <label>Category*</label>
                 <select name="" id="" className="w-full px-2 py-1 border border-gray-200 outline-none rounded-lg">
-                    <option value="">salaire</option>
-                    <option value="">loyer</option>
-                    <option value="">courses</option>
+                    {categories.map((category) => (
+                        <option key={category} value={category}>{category}</option>
+                    ))}
                 </select>
             </div>
             <div className="mb-2">
@@ -32,8 +35,9 @@ export default function CreateForm({onClick}: Props) {
             <div className="mb-2">
                 <label>Type*</label>
                 <select name="" id="" className="w-full px-2 py-1 border border-gray-200 outline-none rounded-lg">
-                    <option value="">revenu</option>
-                    <option value="">depense</option>
+                {types.map((type) => (
+                    <option key={type} value={type}>{type}</option>
+                ))}
                 </select>
             </div>
             <div className="mb-2">

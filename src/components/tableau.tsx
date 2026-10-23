@@ -1,7 +1,13 @@
 import React from 'react'
 import { FaTrashAlt } from 'react-icons/fa'
+import type { Type } from '../types/type'
 
-export default function Tableau() {
+type Props = {
+    transactions: Type[];
+    
+}
+
+export default function Tableau({transactions}: Props) {
   return (
     <div className='p-3 bg-white rounded-lg mt-4'>
         <div className='bg-white flex justify-between items-center'>
@@ -17,14 +23,16 @@ export default function Tableau() {
                 <th className='py-2'>montant</th>
                 <th className='py-2'></th>
             </tr>
-            <tr className='bg-gray-100'>
-                <td className='py-2 px-3'>salaire</td>
-                <td className='py-2 px-3'>salaire</td>
-                <td className='py-2 px-3'>01 nov 2025</td>
-                <td className='py-2 px-3'>revenu</td>
-                <td className='py-2 px-3'>+250€</td>
-                <td className='py-2 px-3'><FaTrashAlt/></td>
-            </tr>
+            {transactions.map((data: Type) => (
+                <tr className='bg-gray-100'>
+                    <td className='py-2 px-3'>{data.libele}</td>
+                    <td className='py-2 px-3'>{data.category}</td>
+                    <td className='py-2 px-3'>{data.date.toLocaleString()}</td>
+                    <td className='py-2 px-3'>{data.type}</td>
+                    <td className='py-2 px-3'>{data.montant}</td>
+                    <td className='py-2 px-3'><FaTrashAlt/></td>
+                </tr>
+            ))} 
         </table>
     </div>
   )
